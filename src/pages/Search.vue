@@ -45,8 +45,7 @@ const search = async (query) => {
 			error.value = true;
 			message.value = "Nessun utente trovato";
 		}
-	} 
-	else {
+	}	else {
 		users.value = [];
 		error.value = true;
 		message.value = "Inserisci almeno un carattere";

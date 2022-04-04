@@ -1,6 +1,9 @@
 <script setup>
-// components
+// UI
 import { darkTheme, NConfigProvider, NIcon } from 'naive-ui'
+
+// components
+// import Navbar from './components/Navbar.vue';
 
 // icons
 import {
@@ -13,7 +16,9 @@ import {
 <template>
   <n-config-provider :theme="darkTheme">
     <div class="text-center">
-      <div  id="nav" class="navbar flex align-bottom gap-8 justify-center text-gray-100 font-semibold ">
+      <div  id="nav" class="navbar flex align-bottom gap-8 justify-center text-gray-100 font-semibold">
+        <!-- <Navbar /> -->
+        
         <router-link to="/">
           <n-icon size="20">
             <SearchIcon />
