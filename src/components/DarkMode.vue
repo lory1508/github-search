@@ -18,10 +18,8 @@ const emit = defineEmits(['updateTheme']);
 
 const railStyle = ({focused,	checked}) => {
 	if (checked && focused) {
-		console.log("checked");
 		emit("updateTheme", 'light');
 	} else if(!checked && focused) {
-		console.log("unchecked");
 		emit("updateTheme", 'dark');
 	}
 }
