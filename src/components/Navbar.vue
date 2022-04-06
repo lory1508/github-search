@@ -5,10 +5,14 @@
     <n-tab-pane name="history" tab="Cronologia">
     </n-tab-pane>
   </n-tabs>
+  <DarkMode @updateTheme="updateTheme"/>
 </template>
 <script setup>
 // UI
 import { NTabs, NTabPane, NIcon } from "naive-ui";
+
+// components
+import DarkMode from "./DarkMode.vue";
 
 // icons
 import {
@@ -18,6 +22,8 @@ import {
 
 // router
 import router from "@/router";
+
+const emit = defineEmits(["updateTheme"]);
 
 let current = '';
 const toPage = (tabName) => {
@@ -30,5 +36,9 @@ const toPage = (tabName) => {
       break;
   }
   return true;
+};
+
+const updateTheme = (ut) => {
+  emit("updateTheme", ut);
 };
 </script>
