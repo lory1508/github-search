@@ -1,29 +1,14 @@
 <template>
-  <n-card title="Song of" style="margin-bottom: 16px">
-    <n-tabs default-value="oasis" justify-content="space-evenly" type="line">
-      <n-tab-pane name="search" tab="Cerca utente">
-				<router-link to="/">
-          <n-icon size="20">
-            <SearchIcon />
-          </n-icon> 
-          <span> Cerca utente </span>
-        </router-link>
-      </n-tab-pane>
-      <n-tab-pane name="history" tab="Cronologia">
-        <router-link to="/history" class="flex flex-auto justify-center">
-          <n-icon size="20">
-            <BookIcon />
-          </n-icon>
-          <span> Cronologia </span>
-        </router-link>
-      </n-tab-pane>
-    </n-tabs>
-  </n-card>
+  <n-tabs justify-content="space-evenly" type="line" @before-leave="toPage" class="py-4" >
+    <n-tab-pane name="search" tab="Cerca utente">
+    </n-tab-pane>
+    <n-tab-pane name="history" tab="Cronologia">
+    </n-tab-pane>
+  </n-tabs>
 </template>
-
 <script setup>
 // UI
-import { NCard, NTabs, NTabPane, NIcon } from "naive-ui";
+import { NTabs, NTabPane, NIcon } from "naive-ui";
 
 // icons
 import {
@@ -31,4 +16,19 @@ import {
   BookOutline as BookIcon,
 } from "@vicons/ionicons5";
 
+// router
+import router from "@/router";
+
+let current = '';
+const toPage = (tabName) => {
+  switch (tabName) {
+    case "search":
+      router.push("/");
+      break;
+    case "history":
+      router.push("/history");
+      break;
+  }
+  return true;
+};
 </script>
